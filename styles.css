@@ -9,8 +9,3 @@
     border: 1px solid blue;
     flex-wrap: wrap;
 }
-
-.grid-square {
-    width: 32px;
-    height: 32px;
-}
