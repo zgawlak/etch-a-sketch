@@ -1,4 +1,8 @@
-.container {
+.slider-box {
+    text-align: center;
+}
+
+.canvas-container {
     display: flex;
     width: 512px;
     height: 512px;
