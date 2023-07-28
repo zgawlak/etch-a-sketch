@@ -1,5 +1,19 @@
-.slider-box {
-    text-align: center;
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  font-family: 'Verdana';
+  font-size: 20px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 512px;
 }
 
 .canvas-container {
@@ -19,4 +33,16 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
   appearance: textfield;
+  font-size: 24px;
+}
+
+button {
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid #000;
+}
+
+.mode-button:active {
+  background-color: black;
 }

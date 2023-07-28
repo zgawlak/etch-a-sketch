@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,19 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
-    <input type="number" class="size-input" min="8" max="100" value="16">
-    <button class="input-button">Generate</button>
-    <br><button class="rainbow-mode">Rainbow mode</button>
-    <button class="black-mode">Black mode</button>
-    <button class="clear-canvas">Clear canvas</button>
-    <div class="canvas-container"></div>
+    <div class="menu">
+        <div class="generate"><input type="number" class="size-input" min="8" max="100" value="16">
+            <button class="input-button">Generate</button>
+        </div>
+        <button class="rainbow-mode mode-button">Rainbow mode</button>
+        <button class="black-mode mode-button">Black mode</button>
+        <button class="clear-canvas">Clear canvas</button>
+    </div>
+    <div class="canvas">
+        <div class="canvas-container"></div>
+    </div>
 </body>
+
 </html>
