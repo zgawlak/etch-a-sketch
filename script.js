@@ -1,8 +1,11 @@
 const defaultMode = "black";
+
 const canvas = document.querySelector('.canvas-container');
 const gridSize = document.querySelector('.size-input');
 const inputButton = document.querySelector('.input-button');
 const rainbowButton = document.querySelector('.rainbow-mode');
+const blackButton = document.querySelector('.black-mode');
+
 let mouseDown = false;
 let currentMode = defaultMode;
 
@@ -10,9 +13,7 @@ function setCurrentMode(newMode) {
     currentMode = newMode;
 }
 
-
 function createGrid() {
-
     const canvasWidth = canvas.clientWidth;
     const squareSize = canvasWidth / gridSize.value;
 
@@ -36,7 +37,7 @@ function changeColour(e) {
         const randomB = Math.floor(Math.random() * 256)
         e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
     }
-    else {
+    else if (currentMode === 'black') {
         e.target.style.backgroundColor = "#000";
     }
 }
@@ -46,6 +47,7 @@ document.body.onmouseup = () => mouseDown = false;
 canvas.addEventListener('mouseover', changeColour);
 
 rainbowButton.addEventListener('click', () => setCurrentMode("rainbow"));
+blackButton.addEventListener('click', () => setCurrentMode("black"));
 inputButton.addEventListener('click', createGrid);
 
 createGrid();
