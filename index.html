@@ -10,16 +10,21 @@
 </head>
 
 <body>
-    <div class="menu">
-        <div class="generate"><input type="number" class="size-input" min="8" max="100" value="16">
-            <button class="input-button">Generate</button>
+    <h1 class="title">Etch-a-Sketch</h1>
+    <div class="container">
+        <div class="menu">
+            <div class="generate">
+                <p>Enter a number from 1 to 100!</p>
+                <input type="number" class="size-input" min="8" max="100" value="16">
+                <button class="input-button">Generate</button>
+            </div>
+            <button class="black-mode mode-button active">Black mode</button>
+            <button class="rainbow-mode mode-button">Rainbow mode</button>
+            <button class="clear-canvas">Clear canvas</button>
         </div>
-        <button class="rainbow-mode mode-button">Rainbow mode</button>
-        <button class="black-mode mode-button">Black mode</button>
-        <button class="clear-canvas">Clear canvas</button>
-    </div>
-    <div class="canvas">
-        <div class="canvas-container"></div>
+        <div class="canvas">
+            <div class="canvas-container"></div>
+        </div>
     </div>
 </body>
 

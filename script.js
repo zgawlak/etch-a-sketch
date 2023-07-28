@@ -11,6 +11,7 @@ let mouseDown = false;
 let currentMode = defaultMode;
 
 function setCurrentMode(newMode) {
+    setActiveButton(newMode);
     currentMode = newMode;
 }
 
@@ -31,7 +32,7 @@ function createGrid() {
 }
 
 function changeColour(e) {
-    if (!mouseDown || !e.target.classList.contains('grid-square')) return;
+    if (!mouseDown || !e.target.classList.contains('grid-square')) return; // Mouseover effect only on grid squares, not canvas
     if (currentMode === "rainbow") {
         const randomR = Math.floor(Math.random() * 256)
         const randomG = Math.floor(Math.random() * 256)
@@ -55,6 +56,22 @@ function clearCanvas() {
     for (i = 0; i < gridSquares.length; ++i) {
         gridSquares[i].setAttribute('data-darkness', 0);
         gridSquares[i].style.backgroundColor = "";
+    }
+}
+
+function setActiveButton(newMode) {
+    if (currentMode === "rainbow"){
+        rainbowButton.classList.remove("active");
+    }
+    else if (currentMode === "black"){
+        blackButton.classList.remove("active");
+    }
+
+    if (newMode === "rainbow") {
+        rainbowButton.classList.add("active");
+    }
+    else if (newMode === "black"){
+        blackButton.classList.add("active");
     }
 }
 
