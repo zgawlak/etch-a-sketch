@@ -24,7 +24,7 @@ function createGrid() {
         gridSquare.classList.add('grid-square');
         gridSquare.style.width = squareSize + "px";
         gridSquare.style.height = squareSize + "px";
-
+        gridSquare.setAttribute('data-darkness', 0);
         canvas.appendChild(gridSquare);
     }
 }
@@ -38,7 +38,14 @@ function changeColour(e) {
         e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
     }
     else if (currentMode === 'black') {
-        e.target.style.backgroundColor = "#000";
+        const currentDarkness = parseInt(e.target.getAttribute('data-darkness'), 10);
+        if (currentDarkness < 10) {
+            const newDarkness = currentDarkness + 1;
+            e.target.setAttribute('data-darkness', newDarkness);
+            const darknessPercentage = newDarkness * 10;
+            const newColorValue = 255 - Math.round((darknessPercentage / 100) * 255);
+            e.target.style.backgroundColor = `rgb(${newColorValue}, ${newColorValue}, ${newColorValue})`;
+        }
     }
 }
 
