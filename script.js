@@ -21,6 +21,8 @@ function createGrid() {
 
     canvas.innerHTML = '';
 
+    if (gridSize.value > 100) return window.alert('Number too high!');
+
     for (let i = 0; i < gridSize.value * gridSize.value; i++) {
         const gridSquare = document.createElement('div');
         gridSquare.classList.add('grid-square');
