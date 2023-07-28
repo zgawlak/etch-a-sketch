@@ -2,35 +2,37 @@ let mouseDown = false;
 document.body.onmousedown = () => mouseDown = true;
 document.body.onmouseup = () => mouseDown = false;
 
-const slider = document.querySelector('.slider');
+const canvas = document.querySelector('.canvas-container');
 
 function createGrid() {
-    const canvas = document.querySelector('.canvas-container');
+    const gridSize = document.querySelector('.size-input');
+    const inputButton = document.querySelector('.input-button');
+
     const canvasWidth = canvas.clientWidth;
-    const squareSize = canvasWidth / slider.value;
+    const squareSize = canvasWidth / gridSize.value;
 
     canvas.innerHTML = '';
 
-    for (let i = 0; i < (slider.value * slider.value); i++) {
+    for (let i = 0; i < (gridSize.value * gridSize.value); i++) {
         const gridSquare = document.createElement('div');
+        gridSquare.classList.add('grid-square');
 
         gridSquare.style.width = squareSize + "px";
         gridSquare.style.height = squareSize + "px";
 
         canvas.appendChild(gridSquare);
-        gridSquare.addEventListener('mouseover', changeColour);
     }
+
+    inputButton.addEventListener('click', () => {
+        createGrid();
+    });
 }
 
 function changeColour(e) {
-    if (!mouseDown) return
-    else e.target.style.backgroundColor = "#000";
+    if (!mouseDown || !e.target.classList.contains('grid-square')) return;
+    e.target.style.backgroundColor = "#000";
 }
 
-const sliderOutput = document.querySelector('output');
-slider.addEventListener('input', () => {
-    sliderOutput.value = slider.value;
-    createGrid();
-});
+canvas.addEventListener('mouseover', changeColour);
 
 createGrid();
