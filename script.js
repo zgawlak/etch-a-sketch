@@ -5,6 +5,7 @@ const gridSize = document.querySelector('.size-input');
 const inputButton = document.querySelector('.input-button');
 const rainbowButton = document.querySelector('.rainbow-mode');
 const blackButton = document.querySelector('.black-mode');
+const clearCanvasButton = document.querySelector('.clear-canvas');
 
 let mouseDown = false;
 let currentMode = defaultMode;
@@ -49,6 +50,14 @@ function changeColour(e) {
     }
 }
 
+function clearCanvas() {
+    const gridSquares = document.querySelectorAll('.grid-square');
+    for (i = 0; i < gridSquares.length; ++i) {
+        gridSquares[i].setAttribute('data-darkness', 0);
+        gridSquares[i].style.backgroundColor = "";
+    }
+}
+
 document.body.onmousedown = () => mouseDown = true;
 document.body.onmouseup = () => mouseDown = false;
 canvas.addEventListener('mouseover', changeColour);
@@ -56,5 +65,6 @@ canvas.addEventListener('mouseover', changeColour);
 rainbowButton.addEventListener('click', () => setCurrentMode("rainbow"));
 blackButton.addEventListener('click', () => setCurrentMode("black"));
 inputButton.addEventListener('click', createGrid);
+clearCanvasButton.addEventListener('click', clearCanvas);
 
 createGrid();
